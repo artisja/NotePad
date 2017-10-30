@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5937E8511FA555ED005BEA66 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5937E8501FA555ED005BEA66 /* AddNoteViewController.swift */; };
+		5937E8531FA56D0B005BEA66 /* DecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5937E8521FA56D0B005BEA66 /* DecisionViewController.swift */; };
+		5937E8561FA64265005BEA66 /* paper-notes.png in Resources */ = {isa = PBXBuildFile; fileRef = 5937E8541FA64265005BEA66 /* paper-notes.png */; };
+		5937E8571FA64265005BEA66 /* notes-png-image-87451.png in Resources */ = {isa = PBXBuildFile; fileRef = 5937E8551FA64265005BEA66 /* notes-png-image-87451.png */; };
 		59B50B7C1F98192500702603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B50B7B1F98192500702603 /* AppDelegate.swift */; };
 		59B50B7E1F98192500702603 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B50B7D1F98192500702603 /* ViewController.swift */; };
 		59B50B811F98192500702603 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59B50B7F1F98192500702603 /* Main.storyboard */; };
@@ -14,6 +18,11 @@
 		59B50B861F98192500702603 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59B50B841F98192500702603 /* LaunchScreen.storyboard */; };
 		59B50B911F98192500702603 /* NotePadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B50B901F98192500702603 /* NotePadTests.swift */; };
 		59B50B9C1F98192500702603 /* NotePadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B50B9B1F98192500702603 /* NotePadUITests.swift */; };
+		59B50BAA1F9938E900702603 /* NotesCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B50BA91F9938E900702603 /* NotesCollectionController.swift */; };
+		59B50BAC1F993AFD00702603 /* NotesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B50BAB1F993AFD00702603 /* NotesCollectionCell.swift */; };
+		59B50BAE1F993EE000702603 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B50BAD1F993EE000702603 /* Note.swift */; };
+		59CEAA541F9A87650086A920 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CEAA531F9A87650086A920 /* NoteViewController.swift */; };
+		59F56CFE1FA28CD50046CEF2 /* divider.png in Resources */ = {isa = PBXBuildFile; fileRef = 59F56CFD1FA28CD50046CEF2 /* divider.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5937E8501FA555ED005BEA66 /* AddNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		5937E8521FA56D0B005BEA66 /* DecisionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionViewController.swift; sourceTree = "<group>"; };
+		5937E8541FA64265005BEA66 /* paper-notes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paper-notes.png"; sourceTree = "<group>"; };
+		5937E8551FA64265005BEA66 /* notes-png-image-87451.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notes-png-image-87451.png"; sourceTree = "<group>"; };
 		59B50B781F98192500702603 /* NotePad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotePad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B50B7B1F98192500702603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59B50B7D1F98192500702603 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +60,11 @@
 		59B50B971F98192500702603 /* NotePadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotePadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B50B9B1F98192500702603 /* NotePadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePadUITests.swift; sourceTree = "<group>"; };
 		59B50B9D1F98192500702603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59B50BA91F9938E900702603 /* NotesCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesCollectionController.swift; sourceTree = "<group>"; };
+		59B50BAB1F993AFD00702603 /* NotesCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesCollectionCell.swift; sourceTree = "<group>"; };
+		59B50BAD1F993EE000702603 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		59CEAA531F9A87650086A920 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		59F56CFD1FA28CD50046CEF2 /* divider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divider.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +115,21 @@
 		59B50B7A1F98192500702603 /* NotePad */ = {
 			isa = PBXGroup;
 			children = (
+				5937E8541FA64265005BEA66 /* paper-notes.png */,
+				5937E8551FA64265005BEA66 /* notes-png-image-87451.png */,
+				59F56CFD1FA28CD50046CEF2 /* divider.png */,
 				59B50B7B1F98192500702603 /* AppDelegate.swift */,
 				59B50B7D1F98192500702603 /* ViewController.swift */,
 				59B50B7F1F98192500702603 /* Main.storyboard */,
 				59B50B821F98192500702603 /* Assets.xcassets */,
 				59B50B841F98192500702603 /* LaunchScreen.storyboard */,
 				59B50B871F98192500702603 /* Info.plist */,
+				59B50BA91F9938E900702603 /* NotesCollectionController.swift */,
+				59B50BAB1F993AFD00702603 /* NotesCollectionCell.swift */,
+				59B50BAD1F993EE000702603 /* Note.swift */,
+				59CEAA531F9A87650086A920 /* NoteViewController.swift */,
+				5937E8501FA555ED005BEA66 /* AddNoteViewController.swift */,
+				5937E8521FA56D0B005BEA66 /* DecisionViewController.swift */,
 			);
 			path = NotePad;
 			sourceTree = "<group>";
@@ -233,8 +260,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				59B50B861F98192500702603 /* LaunchScreen.storyboard in Resources */,
+				5937E8571FA64265005BEA66 /* notes-png-image-87451.png in Resources */,
+				59F56CFE1FA28CD50046CEF2 /* divider.png in Resources */,
 				59B50B831F98192500702603 /* Assets.xcassets in Resources */,
 				59B50B811F98192500702603 /* Main.storyboard in Resources */,
+				5937E8561FA64265005BEA66 /* paper-notes.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +289,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5937E8511FA555ED005BEA66 /* AddNoteViewController.swift in Sources */,
+				59B50BAE1F993EE000702603 /* Note.swift in Sources */,
 				59B50B7E1F98192500702603 /* ViewController.swift in Sources */,
+				59B50BAC1F993AFD00702603 /* NotesCollectionCell.swift in Sources */,
+				5937E8531FA56D0B005BEA66 /* DecisionViewController.swift in Sources */,
 				59B50B7C1F98192500702603 /* AppDelegate.swift in Sources */,
+				59CEAA541F9A87650086A920 /* NoteViewController.swift in Sources */,
+				59B50BAA1F9938E900702603 /* NotesCollectionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +543,7 @@
 				59B50BA21F98192500702603 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		59B50BA31F98192500702603 /* Build configuration list for PBXNativeTarget "NotePadTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +552,7 @@
 				59B50BA51F98192500702603 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		59B50BA61F98192500702603 /* Build configuration list for PBXNativeTarget "NotePadUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +561,7 @@
 				59B50BA81F98192500702603 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
