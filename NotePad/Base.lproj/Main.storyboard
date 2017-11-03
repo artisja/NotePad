@@ -130,7 +130,7 @@
         <scene sceneID="5Yq-IX-kps">
             <objects>
                 <collectionViewController id="YB5-yF-bqw" customClass="NotesCollectionController" customModule="NotePad" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="lWg-na-pVk">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="lWg-na-pVk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -207,10 +207,11 @@
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="onSubmitClicked:" destination="PTT-sl-HqE" eventType="touchUpInside" id="0Iv-GS-yju"/>
+                                    <segue destination="boK-vc-9zA" kind="show" identifier="UnwindSegue" id="GYJ-k0-kDq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSY-Hb-sR7">
-                                <rect key="frame" x="16" y="97" width="49" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSY-Hb-sR7">
+                                <rect key="frame" x="16" y="96" width="49" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -222,26 +223,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title of Note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZF-Si-3ga">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title of Note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZF-Si-3ga">
                                 <rect key="frame" x="73" y="96" width="286" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iUd-Ly-twD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" red="0.50342660930000005" green="0.78511162509999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="Title" id="t0w-CI-vKW"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="RSY-Hb-sR7" firstAttribute="top" secondItem="YZF-Si-3ga" secondAttribute="top" id="73J-1u-CKE"/>
                             <constraint firstItem="RSY-Hb-sR7" firstAttribute="leading" secondItem="Emq-5E-g1c" secondAttribute="leadingMargin" id="OgQ-fg-7CB"/>
                             <constraint firstItem="RSY-Hb-sR7" firstAttribute="bottom" secondItem="YZF-Si-3ga" secondAttribute="bottom" id="PJB-FO-S1E"/>
+                            <constraint firstItem="YZF-Si-3ga" firstAttribute="top" secondItem="KQt-vl-3Kh" secondAttribute="bottom" constant="76" id="a6s-jK-lPv"/>
                             <constraint firstItem="YZF-Si-3ga" firstAttribute="leading" secondItem="RSY-Hb-sR7" secondAttribute="trailing" constant="8" id="qrj-Kh-rYm"/>
                             <constraint firstItem="YZF-Si-3ga" firstAttribute="trailing" secondItem="Emq-5E-g1c" secondAttribute="trailingMargin" id="reZ-sY-vWi"/>
                             <constraint firstItem="YZF-Si-3ga" firstAttribute="leading" secondItem="RSY-Hb-sR7" secondAttribute="trailing" constant="8" id="vte-jy-G2F"/>
@@ -249,6 +243,8 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="newTitleLabel" destination="YZF-Si-3ga" id="Luw-yy-116"/>
+                        <outlet property="newWordingField" destination="X7u-N2-aZ2" id="FfC-Pu-rWh"/>
                         <outlet property="submitButton" destination="b8B-H9-KPa" id="JT1-EN-dSI"/>
                     </connections>
                 </viewController>
@@ -306,4 +302,7 @@
         <image name="notes-png-image-87451.png" width="512" height="512"/>
         <image name="paper-notes" width="1951" height="2400"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="GYJ-k0-kDq"/>
+    </inferredMetricsTieBreakers>
 </document>

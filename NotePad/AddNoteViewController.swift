@@ -11,12 +11,12 @@ import UIKit
 class AddNoteViewController: UIViewController {
 
     @IBOutlet weak var submitButton: UIButton!
+    var createdNote = Note(title: "", info: "")
+    @IBOutlet weak var newTitleLabel: UITextField!
+    @IBOutlet weak var newWordingField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var navigationBarAppearace = UINavigationBar.appearance()
-        
-        self.title = "Add Note"
         // Do any additional setup after loading the view.
     }
 
@@ -26,12 +26,12 @@ class AddNoteViewController: UIViewController {
     }
     
     @IBAction func onSubmitClicked(_ sender: Any){
-    
+     createdNote.noteInfo = newWordingField.text!
+     createdNote.noteTitle = newTitleLabel.text!
+     print(createdNote.noteTitle)
+     print(createdNote.noteInfo)
     }
     
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        print("Its has been unwinded")
-    }
     
     /*
     // MARK: - Navigation

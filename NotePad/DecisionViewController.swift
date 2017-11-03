@@ -10,9 +10,11 @@ import UIKit
 
 class DecisionViewController: UIViewController {
 
+    var noteList = [Note]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(noteList)
         // Do any additional setup after loading the view.
     }
 
@@ -21,13 +23,18 @@ class DecisionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        print("Unwind Segue")
-    }
+
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "UnwindSegue"{
+            print("segue")
+            if let oldNewNote = segue.destination as? AddNoteViewController{
+                let newNote = oldNewNote.createdNote
+                noteList.append(newNote)
+                
+            }
         }
+    }
     /*
     // MARK: - Navigation
 
