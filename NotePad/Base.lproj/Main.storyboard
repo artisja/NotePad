@@ -46,14 +46,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qXN-26-2mE">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qXN-26-2mE">
                                 <rect key="frame" x="99" y="318" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oH6-w5-adv">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oH6-w5-adv">
                                 <rect key="frame" x="99" y="410" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -68,8 +68,16 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="boK-vc-9zA" kind="show" identifier="toDecisionSegue" id="1Sa-Nn-62c"/>
+                                    <action selector="submitLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IuM-74-wlt"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHf-zR-E8M">
+                                <rect key="frame" x="16" y="535" width="343" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,10 +85,17 @@
                     <navigationItem key="navigationItem" id="djc-hx-I0L"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="passwordField" destination="oH6-w5-adv" id="rEW-YP-AQR"/>
+                        <outlet property="signInCheckButton" destination="lHf-zR-E8M" id="vWy-z4-w0w"/>
+                        <outlet property="submitButton" destination="L9k-OC-Srp" id="oBc-dH-xnv"/>
+                        <outlet property="usernameField" destination="qXN-26-2mE" id="eO1-UB-yQw"/>
+                        <segue destination="boK-vc-9zA" kind="show" identifier="decisionSegue" id="InD-xV-xmX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="38" y="139"/>
+            <point key="canvasLocation" x="45.600000000000001" y="138.98050974512745"/>
         </scene>
         <!--Decision View Controller-->
         <scene sceneID="cz8-5C-xdC">
@@ -116,15 +131,29 @@
                                     <segue destination="YB5-yF-bqw" kind="show" identifier="fromTitleSegue" id="sov-rY-ZgO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ek6-U9-UMc">
+                                <rect key="frame" x="0.0" y="300" width="375" height="71"/>
+                                <color key="backgroundColor" red="0.50342660930000005" green="0.78511162509999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ek6-U9-UMc" secondAttribute="trailing" id="XSj-CY-565"/>
+                            <constraint firstItem="ek6-U9-UMc" firstAttribute="leading" secondItem="Dho-Fz-YDg" secondAttribute="leading" id="fDD-4X-5nE"/>
+                        </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="userLabel" destination="ek6-U9-UMc" id="SEu-OI-wxR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Xn-B0-EsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944.79999999999995" y="138.98050974512745"/>
+            <point key="canvasLocation" x="973.60000000000002" y="138.98050974512745"/>
         </scene>
         <!--Notes Collection Controller-->
         <scene sceneID="5Yq-IX-kps">
@@ -303,6 +332,6 @@
         <image name="paper-notes" width="1951" height="2400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GYJ-k0-kDq"/>
+        <segue reference="InD-xV-xmX"/>
     </inferredMetricsTieBreakers>
 </document>

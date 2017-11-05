@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import Firebase
 
 class DecisionViewController: UIViewController {
 
     var noteList = [Note]()
+    var firebaseUser: Auth? = nil
+    @IBOutlet weak var userLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print(noteList)
+        userLabel.text = firebaseUser?.currentUser?.email
         // Do any additional setup after loading the view.
     }
 
