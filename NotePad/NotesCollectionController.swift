@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 private let reuseIdentifier = "NotesCell"
 
@@ -14,17 +15,35 @@ class NotesCollectionController: UICollectionViewController {
 
     @IBOutlet var notesCollectionView: UICollectionView!
     var currentNotes = [Note]()
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Notes"
-        currentNotes.append(Note(title: "Manchester City",info: "A English club in Manchester"))
-        currentNotes.append(Note(title: "Manchester United",info: "A English club in Manchester"))
-        currentNotes.append(Note(title: "Chelsea",info: "A English club in London"))
-        currentNotes.append(Note(title: "Everton",info: "A English club in Liverpool"))
-        print("Manchester City")
+        let currUser = Auth.auth().currentUser?.uid
+        ref = Database.database().reference()
+        var noteReferences = [Int]()
+        ref.child("Users").child(currUser!).child("Note Repo").observeSingleEvent(of: .value, with: {(snapshot) in
+            print(snapshot.value)
+        }){ (error) in
+            print(error.localizedDescription)
+        }
         
+        //add way to get keys so you can iterate through and add to note
         
+//        ref.child("Users").child(currUser!).observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user value
+//            let value = snapshot.value as? NSDictionary
+//            let title = value?["Title"] as? String ?? ""
+//            let info  = value?["Info"] as? String ?? ""
+//            let note = Note(title: title, info:info)
+//            print(note.noteInfo)
+//            print(note.noteTitle)
+//            // ...
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+
 //        self.collectionView?.backgroundColor = UIColor(hue: 0.8556, saturation: 0.18, brightness: 1, alpha: 1.0) /* #ffd1f8 */
 
         // Uncomment the following line to preserve selection between presentations

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AddNoteViewController: UIViewController {
 
@@ -14,9 +15,13 @@ class AddNoteViewController: UIViewController {
     var createdNote = Note(title: "", info: "")
     @IBOutlet weak var newTitleLabel: UITextField!
     @IBOutlet weak var newWordingField: UITextField!
+    var ref: DatabaseReference!
+    var user = Auth.auth()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
 
@@ -30,6 +35,10 @@ class AddNoteViewController: UIViewController {
      createdNote.noteTitle = newTitleLabel.text!
      print(createdNote.noteTitle)
      print(createdNote.noteInfo)
+     var noteKey = String(arc4random())
+     self.ref.child("Users").child((user.currentUser?.uid)!).child(noteKey).child("Info").setValue(createdNote.noteInfo)
+     self.ref.child("Users").child((user.currentUser?.uid)!).child(noteKey).child("Title").setValue(createdNote.noteTitle)
+     self.ref.child("Users").child((user.currentUser?.uid)!).child("Note Repo").child(noteKey).setValue(noteKey)
     }
     
     

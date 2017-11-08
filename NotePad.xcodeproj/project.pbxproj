@@ -28,6 +28,7 @@
 		59B50BAE1F993EE000702603 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B50BAD1F993EE000702603 /* Note.swift */; };
 		59CEAA541F9A87650086A920 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CEAA531F9A87650086A920 /* NoteViewController.swift */; };
 		59F56CFE1FA28CD50046CEF2 /* divider.png in Resources */ = {isa = PBXBuildFile; fileRef = 59F56CFD1FA28CD50046CEF2 /* divider.png */; };
+		59FF4DC71FB1159000273C29 /* Neat Restaurant Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 59FF4DC61FB1159000273C29 /* Neat Restaurant Logo.png */; };
 		67E4E873C988C3E83FA3AF00 /* Pods_NotePad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9C63624B7C214F5BC3D5F0 /* Pods_NotePad.framework */; };
 		7EFEB64407AB1E3CBBF2C4DF /* Pods_NotePadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A91C9D89140FFCCCCEE3A6 /* Pods_NotePadUITests.framework */; };
 		C3CF5341A03E197714EE983D /* Pods_NotePadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA6DD455B6AA4B47CE022B7 /* Pods_NotePadTests.framework */; };
@@ -78,6 +79,7 @@
 		59B50BAD1F993EE000702603 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		59CEAA531F9A87650086A920 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		59F56CFD1FA28CD50046CEF2 /* divider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divider.png; sourceTree = "<group>"; };
+		59FF4DC61FB1159000273C29 /* Neat Restaurant Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Neat Restaurant Logo.png"; sourceTree = "<group>"; };
 		5D9C63624B7C214F5BC3D5F0 /* Pods_NotePad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotePad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DBFEA76C8322EFBC9197BFF /* Pods-NotePadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotePadTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotePadTests/Pods-NotePadTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6ADBC89DC3DDAEE71713633A /* Pods-NotePad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotePad.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotePad/Pods-NotePad.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		59B50B7A1F98192500702603 /* NotePad */ = {
 			isa = PBXGroup;
 			children = (
+				59FF4DC61FB1159000273C29 /* Neat Restaurant Logo.png */,
 				597508091FAD0ADB00D97EA3 /* GoogleService-Info.plist */,
 				597508011FACEC3200D97EA3 /* iTunesArtwork@3x.png */,
 				597508021FACEC3200D97EA3 /* iTunesArtwork@2x.png */,
@@ -328,6 +331,7 @@
 				5937E8571FA64265005BEA66 /* notes-png-image-87451.png in Resources */,
 				597508051FACEC3200D97EA3 /* iTunesArtwork@2x.png in Resources */,
 				597508061FACEC3200D97EA3 /* iTunesArtwork@1x.png in Resources */,
+				59FF4DC71FB1159000273C29 /* Neat Restaurant Logo.png in Resources */,
 				59F56CFE1FA28CD50046CEF2 /* divider.png in Resources */,
 				59B50B831F98192500702603 /* Assets.xcassets in Resources */,
 				59B50B811F98192500702603 /* Main.storyboard in Resources */,

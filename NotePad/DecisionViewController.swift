@@ -12,11 +12,14 @@ import Firebase
 class DecisionViewController: UIViewController {
 
     var noteList = [Note]()
+    var ref: DatabaseReference!
     var firebaseUser: Auth? = nil
     @IBOutlet weak var userLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
+        getNoteList()
         print(noteList)
         userLabel.text = firebaseUser?.currentUser?.email
         // Do any additional setup after loading the view.
@@ -28,15 +31,30 @@ class DecisionViewController: UIViewController {
     }
     
 
+    func getNoteList() -> Void {
+        setUpData()
+        //add retrieval from database
+//        for note in noteList{
+//        self.ref.child("Users").child((firebaseUser?.currentUser?.uid)!).child(note.noteTitle).setValue(note.noteInfo)
+//        }
+    }
+    
+    func setUpData() -> Void{
+        var i = 0
+        while i<10{
+            noteList.append(Note(title: "Duke",info: "University in Durham, North Carolina"));
+            i += 1
+        }
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UnwindSegue"{
             print("segue")
-            if let oldNewNote = segue.destination as? AddNoteViewController{
-                let newNote = oldNewNote.createdNote
-                noteList.append(newNote)
-                
-            }
+//            if let oldNewNote = segue.destination as? AddNoteViewController{
+//                let newNote = oldNewNote.createdNote
+//                noteList.append(newNote)
+//            }
+           //add note database
         }
     }
     /*
