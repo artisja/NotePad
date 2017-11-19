@@ -36,6 +36,7 @@ class AddNoteViewController: UIViewController {
      print(createdNote.noteTitle)
      print(createdNote.noteInfo)
      var noteKey = String(arc4random())
+     self.ref = self.ref.child("Users")
      self.ref.child("Users").child((user.currentUser?.uid)!).child(noteKey).child("Info").setValue(createdNote.noteInfo)
      self.ref.child("Users").child((user.currentUser?.uid)!).child(noteKey).child("Title").setValue(createdNote.noteTitle)
      self.ref.child("Users").child((user.currentUser?.uid)!).child("Note Repo").child(noteKey).setValue(noteKey)

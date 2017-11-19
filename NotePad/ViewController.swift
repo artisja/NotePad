@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     @IBAction func submitLogin(_ sender: Any) {
         var email = usernameField.text
         var password = passwordField.text
-        print(password)
         Auth.auth().signIn(withEmail: email!, password: password!) { (User, Error) in}
 
         if Auth.auth().currentUser !== nil {

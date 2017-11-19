@@ -312,6 +312,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="g1j-7n-mt4"/>
                     <connections>
                         <outlet property="noteDescriptLabel" destination="ZaG-Q0-H6O" id="dbD-pq-hZo"/>
                         <outlet property="noteNavItem" destination="dHI-7U-USx" id="N0R-zF-XSQ"/>
@@ -319,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qKy-tU-tCZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1920.8" y="-636.4317841079461"/>
+            <point key="canvasLocation" x="2838" y="-658"/>
         </scene>
     </scenes>
     <resources>

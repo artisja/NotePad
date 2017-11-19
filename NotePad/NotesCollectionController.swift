@@ -16,19 +16,12 @@ class NotesCollectionController: UICollectionViewController {
     @IBOutlet var notesCollectionView: UICollectionView!
     var currentNotes = [Note]()
     var ref: DatabaseReference!
+    let currUser = Auth.auth().currentUser?.uid
+    var noteReferences = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Notes"
-        let currUser = Auth.auth().currentUser?.uid
-        ref = Database.database().reference()
-        var noteReferences = [Int]()
-        ref.child("Users").child(currUser!).child("Note Repo").observeSingleEvent(of: .value, with: {(snapshot) in
-            print(snapshot.value)
-        }){ (error) in
-            print(error.localizedDescription)
-        }
-        
         //add way to get keys so you can iterate through and add to note
         
 //        ref.child("Users").child(currUser!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -53,12 +46,13 @@ class NotesCollectionController: UICollectionViewController {
 //        self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "NotesCell")
         // Do any additional setup after loading the view.
     }
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     /*
     // MARK: - Navigation
 
@@ -79,12 +73,11 @@ class NotesCollectionController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return currentNotes.count
+        return self.noteReferences.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         let cell: NotesCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotesCell", for: indexPath) as! NotesCollectionCell
-        
         // Configure the cell
         cell.noteTitleButton.setTitle(currentNotes[indexPath.row].noteTitle, for: .normal)
 //        cell.notesTitleButton.setTitleColor(UIColor.black, for: .normal)
@@ -96,7 +89,7 @@ class NotesCollectionController: UICollectionViewController {
         if segue.identifier == "fromTitleSegue"{
             if let noteVC = segue.destination as? NoteViewController{
                 let button = sender as? UIButton
-                print(currentNotes[(button?.tag)!])
+                //currentNotes[(button?.tag)!]
                 noteVC.selectedNote = currentNotes[(button?.tag)!]
             }
         }
