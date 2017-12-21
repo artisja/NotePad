@@ -22,20 +22,13 @@ class NotesCollectionController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Notes"
+        self.navigationItem.backBarButtonItem?.title = "Decision"
+        print("References")
+        print(self.noteReferences)
+        print("Notes")
+        print(self.currentNotes)
         //add way to get keys so you can iterate through and add to note
-        
-//        ref.child("Users").child(currUser!).observeSingleEvent(of: .value, with: { (snapshot) in
-//            // Get user value
-//            let value = snapshot.value as? NSDictionary
-//            let title = value?["Title"] as? String ?? ""
-//            let info  = value?["Info"] as? String ?? ""
-//            let note = Note(title: title, info:info)
-//            print(note.noteInfo)
-//            print(note.noteTitle)
-//            // ...
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
+       
 
 //        self.collectionView?.backgroundColor = UIColor(hue: 0.8556, saturation: 0.18, brightness: 1, alpha: 1.0) /* #ffd1f8 */
 
@@ -73,7 +66,7 @@ class NotesCollectionController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return self.noteReferences.count
+        return self.currentNotes.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{

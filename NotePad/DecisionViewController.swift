@@ -14,7 +14,7 @@ class DecisionViewController: UIViewController {
     var noteList = [Note]()
     var ref: DatabaseReference!
     var noteRefList = [String]()
-    var firebaseUser: Auth? = nil
+    var firebaseUser: Auth! = Auth.auth()
     @IBOutlet weak var userLabel: UILabel!
 
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ class DecisionViewController: UIViewController {
                 self.noteList = notes as! [Note]
             }
         }
-        userLabel.text = firebaseUser?.currentUser?.email
+        self.title = "Home"//firebaseUser?.currentUser?.email
         // Do any additional setup after loading the view.
     }
 
@@ -37,44 +37,50 @@ class DecisionViewController: UIViewController {
     
 
     func getNoteList() -> Void {
-        setUpData()
+       //setUpData()
         //add retrieval from database
-//        for note in noteList{
-//        self.ref.child("Users").child((firebaseUser?.currentUser?.uid)!).child(note.noteTitle).setValue(note.noteInfo)
-//        }
-    }
-    
-    func setUpData() -> Void{
-        var i = 0
-        while i<10{
-            noteList.append(Note(title: "Duke",info: "University in Durham, North Carolina"));
-            i += 1
+        self.ref.child((firebaseUser.currentUser?.uid)!).child("Note Repo").observeSingleEvent(of: .value, with: {snapshot in
+        
+        var dict = snapshot.value as! NSDictionary
+        //print(dict)
+        for item in dict{
+                var tempNote = item.value
+                self.noteRefList.append(tempNote as! String)
         }
+            
+            for noteKey in self.noteRefList {
+                var tempRef = Database.database().reference().child((self.firebaseUser.currentUser?.uid)!)
+                tempRef.child(noteKey).observeSingleEvent(of: .value, with: { snapshot in
+                    if let note = snapshot.value as? NSDictionary{
+                            var madeNote = Note(title: note.value(forKey: "Title") as! String, info: note.value(forKey: "Info") as! String)
+                            print(madeNote)
+                            self.noteList.append(madeNote)
+            }
+            //     completionHandler(notes)
+            })
+            
+        }
+
+        })
     }
     
     func getDatabaseInfo(completionHandler:@escaping ([Any]?) -> Void){
-        ref = Database.database().reference()
         var currUser = firebaseUser?.currentUser?.uid
-        ref = ref.child("Users").child(currUser!)
-        ref.child("Note Repo").observeSingleEvent(of: .value, with: { snapshot  in
-            var dictValue = snapshot.value as? NSDictionary
-            var notes = [Note]()
-            var keys = dictValue?.allKeys
-            self.noteRefList = (dictValue?.allKeys) as! [String]
-            for noteKey in self.noteRefList {
-                self.ref.child(String(noteKey)).observeSingleEvent(of: .value, with: { snapshot in
-                if let note = snapshot.value as? NSDictionary{
-                  var madeNote = Note(title: note.value(forKey: "Title") as! String, info: note.value(forKey: "Info") as! String)
-                    self.noteList.append(madeNote)
-                    }
-                })
-                // var infoData = self.ref.child(String(noteKey)).value(forKey: "Info")
-               //var titleData = self.ref.child(String(noteKey)).value(forKey: "Title")
-              // print(infoData)
-              // print(titleData)
-            }
-            completionHandler(notes)
-        })
+        self.ref = self.ref.child("Users").child(currUser!)
+        var notes = [Note]()
+        //print(self.noteRefList)
+                //print(self.ref.child(noteKey).key)
+                //print(noteKey)
+                //self.ref.child(noteKey).observeSingleEvent(of: .value, with: { snapshot in
+                //if let note = snapshot.value as? NSDictionary{
+                 //print(note)
+                //  var madeNote = Note(title: note.value(forKey: "Title") as! String, info: note.value(forKey: "Info") as! String)
+                    //print(madeNote)
+                //    self.noteList.append(madeNote)
+                //    notes.append(madeNote)
+                //    }
+               //     completionHandler(notes)
+                //})
         
         
     }

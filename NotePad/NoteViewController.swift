@@ -15,14 +15,15 @@ class NoteViewController: UIViewController {
     var noteNumber = 0
     
     
-    @IBOutlet weak var noteDescriptLabel: UILabel!
+    @IBOutlet weak var noteTitleLabel: UILabel!
+    @IBOutlet weak var noteDescriptLabel: UITextView!
     @IBOutlet weak var noteNavItem: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.noteNavItem.title = selectedNote.noteTitle
+       noteTitleLabel.text = selectedNote.noteTitle
         noteDescriptLabel.text = selectedNote.noteInfo
-        noteDescriptLabel.numberOfLines = 0
+        
         // Do any additional setup after loading the view.
     }
 
