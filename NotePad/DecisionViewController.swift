@@ -19,6 +19,18 @@ class DecisionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Home"//firebaseUser?.currentUser?.email
+        // Do any additional setup after loading the view.
+    }
+
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         ref = Database.database().reference()
         getNoteList()
         getDatabaseInfo{ (notes) in
@@ -26,15 +38,7 @@ class DecisionViewController: UIViewController {
                 self.noteList = notes as! [Note]
             }
         }
-        self.title = "Home"//firebaseUser?.currentUser?.email
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     func getNoteList() -> Void {
        //setUpData()
@@ -53,7 +57,6 @@ class DecisionViewController: UIViewController {
                 tempRef.child(noteKey).observeSingleEvent(of: .value, with: { snapshot in
                     if let note = snapshot.value as? NSDictionary{
                             var madeNote = Note(title: note.value(forKey: "Title") as! String, info: note.value(forKey: "Info") as! String)
-                            print(madeNote)
                             self.noteList.append(madeNote)
             }
             //     completionHandler(notes)
@@ -68,20 +71,6 @@ class DecisionViewController: UIViewController {
         var currUser = firebaseUser?.currentUser?.uid
         self.ref = self.ref.child("Users").child(currUser!)
         var notes = [Note]()
-        //print(self.noteRefList)
-                //print(self.ref.child(noteKey).key)
-                //print(noteKey)
-                //self.ref.child(noteKey).observeSingleEvent(of: .value, with: { snapshot in
-                //if let note = snapshot.value as? NSDictionary{
-                 //print(note)
-                //  var madeNote = Note(title: note.value(forKey: "Title") as! String, info: note.value(forKey: "Info") as! String)
-                    //print(madeNote)
-                //    self.noteList.append(madeNote)
-                //    notes.append(madeNote)
-                //    }
-               //     completionHandler(notes)
-                //})
-        
         
     }
 

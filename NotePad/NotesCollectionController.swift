@@ -10,25 +10,24 @@ import UIKit
 import Firebase
 
 private let reuseIdentifier = "NotesCell"
+private let currUser = Auth.auth().currentUser?.uid
 
 class NotesCollectionController: UICollectionViewController {
 
     @IBOutlet var notesCollectionView: UICollectionView!
     var currentNotes = [Note]()
-    var ref: DatabaseReference!
-    let currUser = Auth.auth().currentUser?.uid
+    var noteRefList = [String]()
+    var noteList = [Note]()
     var noteReferences = [String]()
+    var ref = Database.database().reference().child((currUser)!).child("Note Repo")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Notes"
         self.navigationItem.backBarButtonItem?.title = "Decision"
-        print("References")
-        print(self.noteReferences)
-        print("Notes")
-        print(self.currentNotes)
-        //add way to get keys so you can iterate through and add to note
+        print("Enter")
        
+        //add way to get keys so you can iterate through and add to note
 
 //        self.collectionView?.backgroundColor = UIColor(hue: 0.8556, saturation: 0.18, brightness: 1, alpha: 1.0) /* #ffd1f8 */
 
@@ -40,6 +39,7 @@ class NotesCollectionController: UICollectionViewController {
         // Do any additional setup after loading the view.
     }
    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -79,13 +79,46 @@ class NotesCollectionController: UICollectionViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
         if segue.identifier == "fromTitleSegue"{
             if let noteVC = segue.destination as? NoteViewController{
                 let button = sender as? UIButton
-                //currentNotes[(button?.tag)!]
                 noteVC.selectedNote = currentNotes[(button?.tag)!]
+                noteVC.noteKey = self.noteReferences[(button?.tag)!]
             }
         }
+    }
+
+    
+    func getNoteList() -> Void {
+        //add retrieval from database
+        self.noteRefList = [String]()
+        self.ref.observeSingleEvent(of: .value, with: {snapshot in
+            print(self.ref)
+            var dict = snapshot.value as! NSDictionary
+            for item in dict{
+                var tempNote = item.value
+                self.noteRefList.append(tempNote as! String)
+            }
+            
+            for noteKey in self.noteRefList {
+                var tempRef = Database.database().reference().child((currUser)!)
+                tempRef.child(noteKey).observeSingleEvent(of: .value, with: { snapshot in
+                    if let note = snapshot.value as? NSDictionary{
+                        var madeNote = Note(title: note.value(forKey: "Title") as! String, info: note.value(forKey: "Info") as! String)
+                        self.noteList.append(madeNote)
+                    }
+                    //     completionHandler(notes)
+                })
+                
+            }
+            
+        })
+    }
+    
+    func getDatabaseInfo(completionHandler:@escaping ([Any]?) -> Void){
+        //self.ref = self.ref.child("Users").child(currUser!)
+        var notes = [Note]()
     }
 
     // MARK: UICollectionViewDelegate

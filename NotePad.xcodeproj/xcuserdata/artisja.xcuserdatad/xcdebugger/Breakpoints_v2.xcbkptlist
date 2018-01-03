@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NotePad/NotesCollectionController.swift"
-            timestampString = "535505905.852879"
+            timestampString = "536449407.476058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NotePad/NoteViewController.swift"
-            timestampString = "530998793.715286"
+            timestampString = "536445643.48368"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "NoteViewController"
             landmarkType = "3">
             <Locations>
